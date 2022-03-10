@@ -32,7 +32,7 @@ let totalPage = Math.ceil(totalCount / limit)
 const totalCount = 53
 const limit = 5
 
-let totalPage = Math.ceil(totalCount / limit) // 11
+let totalPage = Math.ceil(totalCount / limit) //올림처리해줘야함. 11
 ```
 
 #### 현재 페이지의 그룹 계산하기
