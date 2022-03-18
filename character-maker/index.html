@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link
+      href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff"
+      preload
+    />
+  <title>Character Maker</title>
+</head>
+<body>
+<main class="container">
+  <div class="character-wrapper">
+    <div class="image-wrapper">
+      <img src='' alt="캐릭터 이미지" class="image">
+    </div>
+    <div class="infos">
+      <div class="hair">
+        <div><span>▶︎</span>Hair Style</div>
+        <input type="range" class="detail" min="0" max="2" value="0">
+      </div>
+      <div class="body">
+        <div><span>▶︎</span> Body Fit</div>
+        <input type="range" class="detail" min="0" max="2" value="0">
+      </div>
+      <div class="job">
+        <div><span>▶︎</span>Job</div>
+        <select class="select-job"></select>
+        <button class="action-button btn-job">Click!</button>
+      </div>
+      <div class="ability">
+        <div><span>▶︎</span>Ability</div>
+        <select class="select-ability"></select>
+        <button class="action-button btn-ability">Click!</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="description">
+    <p class="introduction"></p>
+  </div>
+</main>
+  
+<script src="./JS/index.js" type="module"></script>
+</body>
+</html>
