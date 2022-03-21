@@ -29,45 +29,40 @@
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
+
+        <form action="./sucess.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email">
+           </div>
+           <div class="my-3">
+             <input type="password" class="form-control" id="pw">
+           </div>
+           <button type="submit" class="btn btn-primary" id="send">전송</button>
+           <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form> 
       </div>
     </div> 
-    <button id="login">Login</button>
     
-
     <script>
-      // document.querySelector('.navbar-toggler').addEventListener('click',function(){
-      //   document.querySelector('.list-group').classList.toggle('show');
-      // });
 
-//로그인 버튼 
-      $('#login').on('click', function(){
-        $('.black-bg').addClass('show-modal')
+    //전송버튼 눌렀을때 input 에 입력한 값이 공백이면 알림창 띄우기 
+
+    $('form').on('submit',function(e){
+      if (document.getElementById('email').value == ''){
+        e.preventDefault();
+        alert('입력하세요')
+      }
+      if (document.querySelector('#pw').value == ''){
+        alert('입력하세요')
+        e.preventDefault();
+      }
+        else if(document.querySelector('#pw').value.length < 5){
+          alert('6자 이상으로 입력하세요');
+        e.preventDefault();
+        }
       });
-
-//닫기버튼
-      $('#close').on('click',function(){
-        $('.black-bg').hide();
-      });
-//nav-list 애니메이션
-      $('.navbar-toggler').on('click',function(){
-        $('.list-group').toggleClass('show');
-      })
-
-/*
-(일반js) 
-document.querySelectorAll('.hello')[0].innerHTML = "🍎";
-jquery는 여러 줄의 유사한 html 변경하고 싶을 때 한번에 됨 */
-      $('.hello').html('❤️'); 
-      //제이쿼리만의 문법만 써야함 .html() .css() .hide() .fadeout() .toggelClass()
-
-/* 함수명이 짧아진다 
-      $('.hello').css('color','red');
-      $('.hello').addClass('show');
-      $('.hello').toggelClass('show'); */
 
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
