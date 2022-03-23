@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>이수빈이 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+
+  let count = 0;
+
+  document.querySelector('#send-answer').addEventListener('click',function(){
+    count++;
+    let userInput = document.querySelector('#answer').value;
+    if (userInput == '1996'){
+      alert('good');
+    } else if(count >= 3 && userInput !== '1996'){
+      alert('foolish');
+    } else {
+      alert('try again')
+    }
+
+  });
+
+</script>
+</body>
+</html>
