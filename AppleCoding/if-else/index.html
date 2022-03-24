@@ -40,27 +40,40 @@
            <button type="submit" class="btn btn-primary" id="send">전송</button>
            <button type="button" class="btn btn-danger" id="close">닫기</button>
         </form> 
-      </div>
+      </div> 
     </div> 
     
     <script>
 
     //전송버튼 눌렀을때 input 에 입력한 값이 공백이면 알림창 띄우기 
 
+
     $('form').on('submit',function(e){
-      if (document.getElementById('email').value == ''){
+      let emailInput = document.querySelector('#email').value;
+
+      if (emailInput == ''){
         e.preventDefault();
-        alert('입력하세요')
+        alert('아이디를 입력하세요')
       }
+      if (!/\S+@\S+\.S+/.test(emailInput)){
+        alert('Not a email form');
+        e.preventDefault();
+      }
+      if (!/[A-Z]/.test(emailInput)){
+        alert('Need UpperCase')
+      }
+
       if (document.querySelector('#pw').value == ''){
-        alert('입력하세요')
+        alert('비밀번호를 입력하세요')
         e.preventDefault();
       }
         else if(document.querySelector('#pw').value.length < 5){
           alert('6자 이상으로 입력하세요');
         e.preventDefault();
         }
+
       });
+
 //input 은 입력값이 생길때 실행되지만 , change 는 비슷하지만 포커스를 잃을때 실행됨.
       // document.querySelector('#email').addEventListener('input', function(){
       //   console.log('입력되는중');
