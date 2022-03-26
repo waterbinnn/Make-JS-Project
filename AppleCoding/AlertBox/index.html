@@ -58,7 +58,7 @@
 (일반js) 
 document.querySelectorAll('.hello')[0].innerHTML = "🍎";
 jquery는 여러 줄의 유사한 html 변경하고 싶을 때 한번에 됨 */
-      $('.hello').html('❤️'); 
+      // $('.hello').html('❤️'); 
       //제이쿼리만의 문법만 써야함 .html() .css() .hide() .fadeout() .toggelClass()
 
 /* 함수명이 짧아진다 
@@ -66,6 +66,24 @@ jquery는 여러 줄의 유사한 html 변경하고 싶을 때 한번에 됨 */
       $('.hello').addClass('show');
       $('.hello').toggelClass('show'); */
 
+    </script>
+
+    <script>
+      document.querySelector('.black-bg').addEventListener('click',function(e){
+        if (e.target == document.querySelector('.black-bg')){
+          document.querySelector('.black-bg').classList.remove('show-modal');
+        }
+      })
+      
+
+      /*
+      이벤트 버블링을 방지하기 위해 e.target 을 써서 클릭한 영역의 클래스명이 타켓과 일치하면 함수가 실행되도록 해줌 
+      e.target; 실제 클릭한 요소 알려줌 (이벤트 발생한 곳)
+      e.currentTarget; 지금 이벤트리스너가 달린 곳 알려줌 (참고로 this라고 써도 똑같음)
+      e.preventDefault(); 실행하면 이벤트 기본 동작을 막아줌
+      e.stopPropagation(); 실행하면 내 상위요소로의 이벤트 버블링을 중단해줌
+      */
+     
     </script>
 
 

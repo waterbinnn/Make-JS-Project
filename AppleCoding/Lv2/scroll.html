@@ -20,6 +20,11 @@
       </button>
     </div>
   </nav>
+
+  <div class="progress-container">
+    <div class="progress-bar"></div>
+  </div>
+
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
@@ -52,29 +57,56 @@
   <div class="scrolling" style="height: 2000px; overflow-y: scroll"></div>
 
   <script>
-    //div 스크롤바 내린 양 + 눈에 보이는 div높이 == div 의 실제높이 일 때 alert
-    //scrollTop 은 올린 값만 계산해줘서 눈에 보이는div의 높이를 더해줘야 함
+    ; (function () {
+      'use strict'
+      //div 스크롤바 내린 양 + 눈에 보이는 div높이 == div 의 실제높이 일 때 alert
+      //scrollTop 은 올린 값만 계산해줘서 눈에 보이는div의 높이를 더해줘야 함
 
-    $(window).on('scroll', function () {
-
-      if (window.scrollY > 100) {
-        $('.navbar-brand').css('font-size', '20px');
-      } else {
-        $('.navbar-brand').css('font-size', '30px');
+      const get = (target) => {
+        return document.querySelector(target)
       }
-    });
 
-    $('.lorem').on('scroll', function () {
-      //스크롤양 + 높이 == 실제높이 ( 약간 부정확해서 - 10 )
-      let 스크롤양 = document.querySelector('.lorem').scrollTop;
-      let 높이 = document.querySelector('.lorem').clientHeight;
-      let 실제높이 = document.querySelector('.lorem').scrollHeight;
+      $(window).on('scroll', function () {
 
-      if (스크롤양 + 높이 > 실제높이 - 10) {
-        alert('Done!');
-      }
-    })
+        if (window.scrollY > 100) {
+          $('.navbar-brand').css('font-size', '20px');
+        } else {
+          $('.navbar-brand').css('font-size', '30px');
+        }
+      });
 
+      $('.lorem').on('scroll', function () {
+        //스크롤양 + 높이 == 실제높이 ( 약간 부정확해서 - 10 )
+        let 스크롤양 = document.querySelector('.lorem').scrollTop;
+        let 높이 = document.querySelector('.lorem').clientHeight;
+        let 실제높이 = document.querySelector('.lorem').scrollHeight;
+
+        if (스크롤양 + 높이 > 실제높이 - 10) {
+          alert('Done!');
+        }
+      })
+      //스크롤다룰때 주의점 ! 바닥체크로 여러번 중독으로 체크될 수 있음 - 구글에 찾아보기 
+
+      /* document.documentElement = document.querySelector('html') 이랑 같음 
+      !!!document.documentElement 로 해주니깐 스크롤양이 자꾸 0 으로 나와서 document.querySelector('body') 로 바꿔줌 
+      그랬드니 됨 ! */
+
+      $(window).on('scroll', function () {
+
+        const 스크롤양 = document.querySelector('body').scrollTop;
+        const height = document.documentElement.clientHeight;
+        const scrollWidth = (스크롤양 / height) * 120; 
+
+        if (window.scrollY > 1) {
+          $('.progress-bar').css('width', scrollWidth + '%');
+        } 
+        if (window.scrollY >= height - 1000) {
+          $('.progress-bar').css('width', '100%');
+        } 
+        
+      });
+
+    })()
   </script>
 
 

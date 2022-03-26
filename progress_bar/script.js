@@ -27,6 +27,7 @@
       document.documentElement.clientHeight //보여지는 영역 
 
     const scrollWidth = (scrollTop / height) * 100; 
+    console.log(scrollWidth);
     $progressBar.style.width = scrollWidth + '%' //스타일 변경
   }
 
