@@ -36,3 +36,4 @@ $('.list').click(function(e){
   // console.log(e.target.dataset.id); 를 하면 0 , 1 , 2 가 나오니깐 그걸 이용해서
   openTab(e.target.dataset.id); // 여기 파라미터로 데이터셋을 받음 ! 그럼 for 문 이용하지 않아도 됨 
 })
+
